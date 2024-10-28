@@ -29,7 +29,7 @@ let apellidoUsuario = prompt("Ingrese su apellido");
 
 let precio = calculoTotal(tipoHamburguesa, jamon, queso, salsaTomate, mayonesa, mostaza, tomate, lechuga, cebolla)
 
-console.log(`Estimado ${nombreUsuario} ${apellidoUsuario}, el monto total a pagar es de: $${precio}`)
+return `Estimado ${nombreUsuario} ${apellidoUsuario}, el monto total a pagar es de: $${precio}`
 }
 
-fastFood("carne",true, false, false, true, true, false, true, false);
+// console.log(fastFood("carne",true, false, false, true, true, false, true, false));
