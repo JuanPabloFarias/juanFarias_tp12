@@ -1,20 +1,35 @@
-fastfood(tipoHamburguesa, jamon, queso, salsaTomate, mayonesa, mostaza, tomate, lechuga, cebolla){
-prompt
+const prompt = require("prompt-sync")({ sigint: true });
 
-calculoTotal(tipoHamburguesa, jamon, queso, salsaTomate, mayonesa, mostaza, tomate, lechuga, cebolla){
+function calculoTotal(tipoHamburguesa, jamon, queso, salsaTomate, mayonesa, mostaza, tomate, lechuga, cebolla){
     let precioTotal = 0;
-    jamon == true ? precioTotal+= 30;
-    queso == true ? precioTotal+= 25;
-    salsaDeTomate == true ? precioTotal+= 5;
-    mayonesa == true ? precioTotal+= 5;
-    mostaza == true ? precioTotal+= 5;
-    tomate == true ? precioTotal+= 15;
-    lechuga == true ? precioTotal+= 10;
-    cebolla == true ? precioTotal+= 10;
+    jamon == true ? precioTotal+= 30 : precioTotal+= 0;
+    queso == true ? precioTotal+= 25 : precioTotal+= 0;
+    salsaTomate == true ? precioTotal+= 5 : precioTotal+= 0;
+    mayonesa == true ? precioTotal+= 5 : precioTotal+= 0;
+    mostaza == true ? precioTotal+= 5 : precioTotal+= 0;
+    tomate == true ? precioTotal+= 15 : precioTotal+= 0;
+    lechuga == true ? precioTotal+= 10 : precioTotal+= 0;
+    cebolla == true ? precioTotal+= 10 : precioTotal+= 0;
 
+    if(tipoHamburguesa === "carne"){
+        precioTotal += 1800;
+    } else if(tipoHamburguesa === "pollo"){
+        precioTotal += 1500;
+    } else if(tipoHamburguesa === "vegetariana"){
+        precioTotal += 1200;
+    } else{
+        console.log("Error. Tipo de Hamburguesa no especificada.")
+    }
     return precioTotal;
 }
 
-console.log(`Estimado cliente: en base al tipo de vehículo compacto alquilado, considerando
-        //     los ${diasDeAlquiler} días utilizados, el monto total a pagar es de ${resultado}`)
+function fastFood(tipoHamburguesa, jamon, queso, salsaTomate, mayonesa, mostaza, tomate, lechuga, cebolla){
+let nombreUsuario = prompt("Ingrese su nombre");
+let apellidoUsuario = prompt("Ingrese su apellido");
+
+let precio = calculoTotal(tipoHamburguesa, jamon, queso, salsaTomate, mayonesa, mostaza, tomate, lechuga, cebolla)
+
+console.log(`Estimado ${nombreUsuario} ${apellidoUsuario}, el monto total a pagar es de: $${precio}`)
 }
+
+fastFood("carne",true, false, false, true, true, false, true, false);
